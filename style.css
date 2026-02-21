@@ -1,0 +1,65 @@
+
+body {
+    margin-top: 0;
+   margin-left: 0;
+    color: rgb(255, 253, 253);
+    background-image: url("img/fundo\ mobile.png");
+    background-size: cover;
+     opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+
+.pagina-inicial {
+    margin: 0;
+    font-family: Arial;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hero {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 50px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.hero h1 {
+    font-size: 50px;
+    color: #ffd000;
+   
+}
+
+.slogan {
+    font-size: 40px;
+    color:#ffd000;
+    margin-bottom: 0;
+    margin-top: auto;
+}
+
+.btn-pag1 {
+    display: inline-block;
+    margin-top: 20px;
+    background: #ffd000;
+    color: rgb(0, 0, 0);
+    padding: 15px 30px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    
+}
+
+.btn-cardapio:hover {
+    transform: scale(1.05);
+}
+
+
