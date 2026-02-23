@@ -21,7 +21,33 @@ function adicionar(nome, preco) {
 }
 
 
+function estaAbertoAgora() {
+    const agora = new Date();
+    const dia = agora.getDay(); // 0=domingo, 6=sábado
+    const hora = agora.getHours();
+    const minuto = agora.getMinutes();
 
+    // 🔒 Fecha depois das 23:00
+    if (hora >= 23) {
+        return false;
+    }
+
+    // 🟢 Se for sábado
+    if (dia === 6) {
+        // Abre a partir de 17:30
+        if (hora > 17 || (hora === 17 && minuto >= 30)) {
+            return true;
+        }
+        return false;
+    }
+
+    // 🟢 Outros dias (abre às 18:00)
+    if (hora >= 18) {
+        return true;
+    }
+
+    return false;
+}
 
 
 function atualizarCarrinho(){
@@ -81,6 +107,11 @@ function removerItem(index){
 
 function enviarPedido(){
 
+    if(!estaAbertoAgora()){
+      alert("Estamos fechados no momento.");
+      return;
+    }
+
     if (carrinho.length === 0) {
     alert("Seu carrinho está vazio!");
     return;
@@ -88,10 +119,7 @@ function enviarPedido(){
   
     let agora = new Date().getHours();
 
-    if(!(agora >= 10 && agora < 23)){
-        alert("Estamos fechados no momento!");
-        return;
-    }
+    
 
     let mensagem = "Olá, quero pedir:%0A%0A";
 
@@ -536,6 +564,8 @@ function limparCarrinho(){
     atualizarCarrinho();
   }
 }
+
+
 
 
 verificarHorario();
