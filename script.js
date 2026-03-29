@@ -447,14 +447,14 @@ function confirmarCuscuzRecheado(){
   // limpar selects
   document.getElementById("sabor1").value = "";
   document.getElementById("sabor2").value = "";
-  document.getElementById("sabor3").value = "";
+  
 }
 
 function atualizarBloqueioSabores() {
   const selects = [
     document.getElementById("sabor1"),
-    document.getElementById("sabor2"),
-    document.getElementById("sabor3")
+    document.getElementById("sabor2")
+    
   ];
 
   const escolhidos = selects.map(s => s.value).filter(v => v);
