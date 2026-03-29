@@ -566,7 +566,7 @@ function limparCarrinho(){
 }
 
 function pegarPratinhoDoDia() {
-    const hoje = 2;
+    const hoje = 3;
 
     if (hoje === 2) {
         return `
