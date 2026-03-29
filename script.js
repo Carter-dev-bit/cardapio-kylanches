@@ -565,8 +565,33 @@ function limparCarrinho(){
   }
 }
 
+function pegarPratinhoDoDia() {
+    const hoje = new Date().getDay();
 
+    if (hoje === 2) {
+        return `
+        <h3>Pratinho - Terça</h3>
+        <p>Panqueca - R$10,00</p>
+        <small>Acompanha: arroz, purê, batata doce e batata palha</small>
+        <p>Lasanha - R$10,00</p>
+        `;
+    }
 
+    if (hoje === 3) {
+        return `
+        <h3>Pratinho - Quarta</h3>
+        <p>Creme de galinha - R$10,00</p>
+        <small>Acompanha: arroz, farofa, salada de maionese e batata palha</small>
+        `;
+    }
+
+    return `
+        <h3>Pratinho</h3>
+        <p>Hoje não temos pratinho disponível</p>
+    `;
+}
+
+document.getElementById("pratinhoCard").innerHTML = pegarPratinhoDoDia();
 
 verificarHorario();
 setInterval(verificarHorario, 60000); // verifica a cada 1 minuto
