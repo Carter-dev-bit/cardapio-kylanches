@@ -151,15 +151,7 @@ if(item.frutas){
 });
 
 
-    let totalValor =
-    parseFloat(document.getElementById("total").
-  textContent);
-
-    let taxaEntrega = 0;
-
-    if(totalValor < 50){
-      taxaEntrega = 7;
-    }
+    let totalValor = document.getElementById("total").textContent;
 
     let observacao = document.getElementById("observacao").value;
 
@@ -167,12 +159,7 @@ if(item.frutas){
         mensagem += `%0AObservação:%0A${observacao}%0A`;
     }
 
-    if (taxaEntrega > 0){
-    mensagem += `%0ATotal de entrega: R$${taxaEntrega.toFixed(2)}`;
-
-    } else {
-      mensagem += `%OAEntrega: Grátis`;
-    }
+    mensagem += `%0ATotal: R$${totalValor}`;
 
     let numero = "5585998554871";
     window.open(`https://wa.me/${numero}?text=${mensagem}`);
@@ -296,6 +283,7 @@ function fecharModal(){
 
 
 
+
 function confirmarPersonalizacao(){
 
   let paoSelecionado = document.querySelector('input[name="pao"]:checked');
@@ -336,7 +324,6 @@ function confirmarPersonalizacao(){
   mostrarToast("Adicionado ao carrinho ✅");
   fecharModal();
 }
-
 
 function adicionarProdutoSimples(nome, preco){
 
