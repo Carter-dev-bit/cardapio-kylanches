@@ -652,6 +652,23 @@ Ingrediente
 </div>
 
 <div class="card" data-categoria="pastel">
+<h3>Pastel Doce (P)</h3>
+<p>R$6,00</p>
+
+<button onclick="adicionarProdutoSimples('Pastel Doce - Chocolate', 6)">
+Chocolate
+</button>
+
+<button onclick="adicionarProdutoSimples('Pastel Doce - Beijinho', 6)">
+Beijinho
+</button>
+
+<button onclick="adicionarProdutoSimples('Pastel Doce - Doce de leite', 6)">
+Doce de leite
+</button>
+</div>
+
+<div class="card" data-categoria="pastel">
             <h3>Pastel P De Frango</h3>
             <p>R$6,00</p>
           <button class="add" onclick="adicionarProdutoSimples('Pastel P De Frango', 6); animarCard(this)">Adicionar</button>
@@ -918,7 +935,23 @@ id="observacao"
 placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
 ></textarea>
 
+<label>
+  <input type="radio" name="tipoEntrega" value="retirada" checked>
+  Retirar na lanchonete
+</label>
 
+<label>
+  <input type="radio" name="tipoEntrega" value="entrega">
+  Entrega
+</label>
+
+<br><br>
+
+<div id="dadosEntrega" style="display:none;">
+  <input type="text" id="endereco" placeholder="Endereço"><br>
+  <input type="text" id="numeroCasa" placeholder="Número"><br>
+  <input type="text" id="referencia" placeholder="Ponto de referência"><br>
+</div>
 
         <button onclick="enviarPedido()">Enviar Pedido</button>
         <button onclick="fecharCarrinho()">Fechar</button>

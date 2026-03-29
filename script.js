@@ -151,7 +151,42 @@ if(item.frutas){
 });
 
 
-    let totalValor = document.getElementById("total").textContent;
+   let tipoEntrega = document.querySelector('input[name="tipoEntrega"]:checked').value;
+
+  let totalValor = parseFloat(document.getElementById("total").textContent);
+  let taxaEntrega = 0;
+
+  if(tipoEntrega === "entrega"){
+
+  let endereco = document.getElementById("endereco").value.trim();
+  let numeroCasa = document.getElementById("numeroCasa").value.trim();
+  let referencia = document.getElementById("referencia").value.trim();
+
+  if(!endereco || !numeroCasa){
+    alert("Preencha o endereço e número!");
+    return;
+  }
+
+  if(totalValor < 50){
+    taxaEntrega = 7;
+  }
+
+  mensagem += `%0AEntrega:%0A`;
+  mensagem += `Endereço: ${endereco}, Nº ${numeroCasa}%0A`;
+
+  if(referencia){
+    mensagem += `Referência: ${referencia}%0A`;
+  }
+
+  if(taxaEntrega > 0){
+    mensagem += `Taxa de entrega: R$${taxaEntrega.toFixed(2)}%0A`;
+  } else {
+    mensagem += `Entrega: Grátis 🎉%0A`;
+  }
+
+} else {
+  mensagem += `%0ARetirada na lanchonete%0A`;
+}
 
     let observacao = document.getElementById("observacao").value;
 
@@ -159,12 +194,22 @@ if(item.frutas){
         mensagem += `%0AObservação:%0A${observacao}%0A`;
     }
 
-    mensagem += `%0ATotal: R$${totalValor}`;
+    
+   let totalFinal = totalValor + taxaEntrega;
+    mensagem += `%0ATotal: R$${totalFinal.toFixed(2)}`;
 
     let numero = "5585998554871";
     window.open(`https://wa.me/${numero}?text=${mensagem}`);
 }
 
+document.querySelectorAll('input[name="tipoEntrega"]').forEach(radio => {
+  radio.addEventListener("change", () => {
+    const tipo = document.querySelector('input[name="tipoEntrega"]:checked').value;
+
+    document.getElementById("dadosEntrega").style.display =
+      tipo === "entrega" ? "block" : "none";
+  });
+});
 
 
 function verificarHorario(){
@@ -602,6 +647,19 @@ function pegarPratinhoDoDia() {
 }
 
 document.getElementById("pratinhoCard").innerHTML = pegarPratinhoDoDia();
+
+
+document.querySelectorAll('input[name="tipoEntrega"]').forEach(radio => {
+  radio.addEventListener("change", () => {
+    const tipo = document.querySelector('input[name="tipoEntrega"]:checked').value;
+
+    if(tipo === "entrega"){
+      document.getElementById("dadosEntrega").style.display = "block";
+    } else {
+      document.getElementById("dadosEntrega").style.display = "none";
+    }
+  });
+});
 
 verificarHorario();
 setInterval(verificarHorario, 60000); // verifica a cada 1 minuto
