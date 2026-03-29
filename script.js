@@ -151,7 +151,15 @@ if(item.frutas){
 });
 
 
-    let totalValor = document.getElementById("total").textContent;
+    let totalValor =
+    parseFloat(document.getElementById("total").
+  textContent);
+
+    let taxaEntrega = 0;
+
+    if(totalValor < 50){
+      taxaEntrega = 7;
+    }
 
     let observacao = document.getElementById("observacao").value;
 
@@ -159,7 +167,12 @@ if(item.frutas){
         mensagem += `%0AObservação:%0A${observacao}%0A`;
     }
 
-    mensagem += `%0ATotal: R$${totalValor}`;
+    if (taxaEntrega > 0){
+    mensagem += `%0ATotal de entrega: R$${taxaEntrega.toFixed(2)}`;
+
+    } else {
+      mensagem += `%OAEntrega: Grátis`;
+    }
 
     let numero = "5585998554871";
     window.open(`https://wa.me/${numero}?text=${mensagem}`);
