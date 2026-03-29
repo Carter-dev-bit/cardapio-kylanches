@@ -267,8 +267,12 @@ function abrirPersonalizacao(nome, opcoesPao, opcoesMolho){
   });
 
   opcoesMolho.forEach(m => {
-    selectMolho.innerHTML += `<option value="${m}">${m}</option>`;
-  });
+  selectMolho.innerHTML += `
+    <option value="${m.preco}" data-nome="${m.nome}">
+      ${m.nome} ${m.preco > 0 ? `( +R$${m.preco} )` : ''}
+    </option>
+  `;
+});
 
   document.getElementById("modalPersonalizar").style.display = "flex";
 }
@@ -276,7 +280,6 @@ function abrirPersonalizacao(nome, opcoesPao, opcoesMolho){
 function fecharModal(){
   document.getElementById("modalPersonalizar").style.display = "none";
 }
-
 
 
 
@@ -289,9 +292,14 @@ function confirmarPersonalizacao(){
     return;
   }
 
-  let preco = parseFloat(paoSelecionado.value);
+  const selectMolho = document.getElementById("molho");
+
+  const molho = selectMolho.options[selectMolho.selectedIndex].text;
+  const precoMolho = parseFloat(selectMolho.value);
+
+  let preco = parseFloat(paoSelecionado.value) + precoMolho;
+
   let nomePao = paoSelecionado.dataset.nome.trim();
-  let molho = document.getElementById("molho").value.trim();
 
   let itemExistente = carrinho.find(item =>
     item.nome === produtoAtual.nome &&
@@ -313,11 +321,9 @@ function confirmarPersonalizacao(){
 
   atualizarCarrinho();
   mostrarToast("Adicionado ao carrinho ✅");
-
   fecharModal();
-  
-
 }
+
 
 function adicionarProdutoSimples(nome, preco){
 
