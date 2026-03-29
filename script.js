@@ -566,7 +566,7 @@ function limparCarrinho(){
 }
 
 function pegarPratinhoDoDia() {
-    const hoje = new Date(2).getDay();
+    const hoje = new Date().getDay();
 
     if (hoje === 2) {
         return `
