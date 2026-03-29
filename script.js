@@ -595,6 +595,7 @@ function pegarPratinhoDoDia() {
     `;
 }
 
+document.getElementById("pratinhoCard").innerHTML = pegarPratinhoDoDia();
 
 verificarHorario();
 setInterval(verificarHorario, 60000); // verifica a cada 1 minuto
