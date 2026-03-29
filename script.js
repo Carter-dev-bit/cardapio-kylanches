@@ -411,14 +411,14 @@ function fecharCuscuzRecheado(){
 function confirmarCuscuzRecheado(){
   const s1 = document.getElementById("sabor1").value.trim();
   const s2 = document.getElementById("sabor2").value.trim();
-  const s3 = document.getElementById("sabor3").value.trim();
+  
 
-  if(!s1 || !s2 || !s3){
-    alert("Escolha os 3 sabores!");
+  if(!s1 || !s2 ){
+    alert("Escolha os 2 sabores!");
     return;
   }
 
-  const sabores = [s1, s2, s3].join(", ");
+  const sabores = [s1, s2 ].join(", ");
   const nome = "Cuscuz Recheado";
   const preco = 13;
 
