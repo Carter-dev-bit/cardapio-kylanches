@@ -60,6 +60,7 @@ function atualizarCarrinho(){
 
         total += item.preco * item.quantidade;
 
+
         lista.innerHTML += `
             <li class="item-carrinho">
                 <span>${item.nome}</span>
@@ -78,16 +79,30 @@ function atualizarCarrinho(){
     document.getElementById("total").innerText = total.toFixed(2);
     document.getElementById("contador").innerText =
         carrinho.reduce((soma, item) => soma + item.quantidade, 0);
+}
 
-    // 🔥 AQUI ENTRA A NOVA PARTE
-    const infoEntrega = document.getElementById("infoEntrega");
+function aumentar(index){
+    carrinho[index].quantidade += 1;
+    atualizarCarrinho();
+}
 
-    if(total < 50){
-        let falta = 50 - total;
-        infoEntrega.innerText = `Taxa: R$7,00 | Faltam R$${falta.toFixed(2)} para entrega grátis 🚀`;
+function diminuir(index){
+    if (carrinho[index].quantidade > 1){
+        carrinho[index].quantidade -= 1;
     } else {
-        infoEntrega.innerText = `Entrega grátis 🎉`;
+        carrinho.splice(index, 1);
     }
+    atualizarCarrinho();
+}
+
+function removerItem(index){
+    if (carrinho[index].quantidade > 1) {
+        carrinho[index].quantidade -= 1;
+    } else {
+        carrinho.splice(index, 1);
+    }
+
+    atualizarCarrinho();
 }
 
 
