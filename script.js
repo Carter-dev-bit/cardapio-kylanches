@@ -78,30 +78,16 @@ function atualizarCarrinho(){
     document.getElementById("total").innerText = total.toFixed(2);
     document.getElementById("contador").innerText =
         carrinho.reduce((soma, item) => soma + item.quantidade, 0);
-}
 
-function aumentar(index){
-    carrinho[index].quantidade += 1;
-    atualizarCarrinho();
-}
+    // 🔥 AQUI ENTRA A NOVA PARTE
+    const infoEntrega = document.getElementById("infoEntrega");
 
-function diminuir(index){
-    if (carrinho[index].quantidade > 1){
-        carrinho[index].quantidade -= 1;
+    if(total < 50){
+        let falta = 50 - total;
+        infoEntrega.innerText = `Taxa: R$7,00 | Faltam R$${falta.toFixed(2)} para entrega grátis 🚀`;
     } else {
-        carrinho.splice(index, 1);
+        infoEntrega.innerText = `Entrega grátis 🎉`;
     }
-    atualizarCarrinho();
-}
-
-function removerItem(index){
-    if (carrinho[index].quantidade > 1) {
-        carrinho[index].quantidade -= 1;
-    } else {
-        carrinho.splice(index, 1);
-    }
-
-    atualizarCarrinho();
 }
 
 
