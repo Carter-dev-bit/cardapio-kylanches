@@ -49,9 +49,10 @@ function estaAbertoAgora() {
     return false;
 }
 
-
 function atualizarCarrinho(){
     const lista = document.getElementById("carrinho");
+    const infoEntrega = document.getElementById("infoEntrega"); // pega o elemento
+
     lista.innerHTML = "";
 
     let total = 0;
@@ -59,7 +60,6 @@ function atualizarCarrinho(){
     carrinho.forEach((item, index) => {
 
         total += item.preco * item.quantidade;
-
 
         lista.innerHTML += `
             <li class="item-carrinho">
@@ -76,16 +76,17 @@ function atualizarCarrinho(){
         `;
     });
 
+    // 🔥 lógica da entrega AQUI dentro
+    if(total < 50){
+        let falta = 50 - total;
+        infoEntrega.innerText = `Taxa: R$7,00 | Faltam R$${falta.toFixed(2)} para entrega grátis 🚀`;
+    } else {
+        infoEntrega.innerText = `Entrega grátis 🎉`;
+    }
+
     document.getElementById("total").innerText = total.toFixed(2);
     document.getElementById("contador").innerText =
         carrinho.reduce((soma, item) => soma + item.quantidade, 0);
-}
-
-if(total < 50){
-  let falta = 50 - total;
-  infoEntrega.innerText = `Taxa: R$7,00 | Faltam R$${falta.toFixed(2)} para entrega grátis 🚀`;
-} else {
-  infoEntrega.innerText = `Entrega grátis 🎉`;
 }
 
 function aumentar(index){
