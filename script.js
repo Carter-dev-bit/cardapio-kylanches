@@ -20,33 +20,51 @@ function adicionar(nome, preco) {
     atualizarCarrinho();
 }
 
-
 function estaAbertoAgora() {
-    const agora = new Date();
-    const dia = agora.getDay(); // 0=domingo, 6=sábado
-    const hora = agora.getHours();
-    const minuto = agora.getMinutes();
 
-    // 🔒 Fecha depois das 23:00
-    if (hora >= 23) {
-        return false;
+  const agora = new Date();
+  const dia = agora.getDay(); // 0=domingo, 6=sábado
+  const hora = agora.getHours();
+  const minuto = agora.getMinutes();
+
+
+  // 🔥 Domingo - aberto o dia todo
+  if (dia === 0) {
+    return true;
+  }
+
+  // 🔥 Sexta (5) - 15:00 até 17:30
+  if (dia === 5) {
+    if (
+      (hora > 15 && hora < 17) ||
+      (hora === 15) ||
+      (hora === 17 && minuto <= 30)
+    ) {
+      return true;
     }
-
-    // 🟢 Se for sábado
-    if (dia === 6) {
-        // Abre a partir de 17:30
-        if (hora > 17 || (hora === 17 && minuto >= 30)) {
-            return true;
-        }
-        return false;
-    }
-
-    // 🟢 Outros dias (abre às 18:00)
-    if (hora >= 18) {
-        return true;
-    }
-
     return false;
+  }
+
+  // 🔥 Sábado (6) - 17:40 até 23:00
+  if (dia === 6) {
+    if (
+      hora > 17 ||
+      (hora === 17 && minuto >= 40)
+    ) {
+      return hora < 23;
+    }
+    return false;
+  }
+
+  // 🔥 Segunda a Quinta (1 a 4) - 15:00 até 23:00
+  if (dia >= 1 && dia <= 4) {
+    if (hora >= 15 && hora < 23) {
+      return true;
+    }
+    return false;
+  }
+
+  return false;
 }
 
 function atualizarCarrinho(){
@@ -222,19 +240,18 @@ document.querySelectorAll('input[name="tipoEntrega"]').forEach(radio => {
 
 
 function verificarHorario(){
-    let hora = new Date().getHours();
-    let status = document.getElementById("status");
-    let botao = document.getElementById("enviar");
+  let status = document.getElementById("status");
+  let botao = document.getElementById("enviar");
 
-    if(hora >= 10 && hora < 23){
-        status.innerHTML = "🟢 Estamos ABERTOS";
-        botao.disabled = false;
-        botao.classList.remove("fechar");
-    }else{
-        status.innerHTML = "🔴 Estamos FECHADOS (18h às 23h)";
-        botao.disabled = true;
-        botao.classList.add("fechar");
-    }
+  if(estaAbertoAgora()){
+    status.innerHTML = "🟢 Estamos ABERTOS";
+    botao.disabled = false;
+    botao.classList.remove("fechar");
+  } else {
+    status.innerHTML = "🔴 Estamos FECHADOS";
+    botao.disabled = true;
+    botao.classList.add("fechar");
+  }
 }
 
 function transicao(event) {
