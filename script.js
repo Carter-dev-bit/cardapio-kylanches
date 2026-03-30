@@ -349,8 +349,8 @@ function confirmarPersonalizacao(){
 
   const selectMolho = document.getElementById("molho");
 
-  const molho = selectMolho.options[selectMolho.selectedIndex].text;
   const precoMolho = parseFloat(selectMolho.value);
+  const molhoNome = selectMolho.options[selectMolho.selectedIndex].dataset.nome;
 
   let preco = parseFloat(paoSelecionado.value) + precoMolho;
 
@@ -359,7 +359,7 @@ function confirmarPersonalizacao(){
   let itemExistente = carrinho.find(item =>
     item.nome === produtoAtual.nome &&
     item.pao === nomePao &&
-    item.molho === molho
+    item.molho === molhoNome
   );
 
   if(itemExistente){
@@ -369,7 +369,7 @@ function confirmarPersonalizacao(){
       nome: produtoAtual.nome,
       quantidade: 1,
       pao: nomePao,
-      molho: molho,
+      molho: `${molhoNome} (R$${precoMolho.toFixed(2)})`,
       preco: preco
     });
   }
