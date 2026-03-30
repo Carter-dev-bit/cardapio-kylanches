@@ -81,6 +81,13 @@ function atualizarCarrinho(){
         carrinho.reduce((soma, item) => soma + item.quantidade, 0);
 }
 
+if(total < 50){
+  let falta = 50 - total;
+  infoEntrega.innerText = `Taxa: R$7,00 | Faltam R$${falta.toFixed(2)} para entrega grátis 🚀`;
+} else {
+  infoEntrega.innerText = `Entrega grátis 🎉`;
+}
+
 function aumentar(index){
     carrinho[index].quantidade += 1;
     atualizarCarrinho();
