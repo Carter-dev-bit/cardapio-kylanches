@@ -175,6 +175,10 @@ if(item.frutas){
   mensagem += `  Frutas: ${item.frutas}%0A`;
 }
 
+if(item.sabor){
+  mensagem += `  Sabor: ${item.sabor}%0A`;
+}
+
 });
 
 
@@ -214,6 +218,7 @@ if(item.frutas){
 } else {
   mensagem += `%0ARetirada na lanchonete%0A`;
 }
+
 
     let observacao = document.getElementById("observacao").value;
 
@@ -686,6 +691,53 @@ document.querySelectorAll('input[name="tipoEntrega"]').forEach(radio => {
     }
   });
 });
+
+
+let vitaminaAtual = null;
+
+function abrirOpcaoVitamina(nome, preco){
+  vitaminaAtual = { nome, preco };
+  document.getElementById("modalVitaminaSimples").style.display = "flex";
+}
+
+function fecharVitaminaSimples(){
+  document.getElementById("modalVitaminaSimples").style.display = "none";
+}
+
+function confirmarVitaminaSimples(){
+  const sabor = document.getElementById("saborVitamina").value;
+
+  if(!sabor){
+    alert("Escolha um sabor!");
+    return;
+  }
+
+  let itemExistente = carrinho.find(item =>
+    item.nome === vitaminaAtual.nome &&
+    item.sabor === sabor
+  );
+
+  if(itemExistente){
+    itemExistente.quantidade += 1;
+  } else {
+    carrinho.push({
+      nome: vitaminaAtual.nome,
+      preco: vitaminaAtual.preco,
+      quantidade: 1,
+      sabor: sabor
+    });
+  }
+
+  atualizarCarrinho();
+  mostrarToast("Adicionado ao carrinho ✅");
+
+  fecharVitaminaSimples();
+
+  // limpa seleção
+  document.getElementById("saborVitamina").value = "";
+}
+
+
 
 verificarHorario();
 setInterval(verificarHorario, 60000); // verifica a cada 1 minuto

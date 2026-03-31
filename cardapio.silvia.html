@@ -533,14 +533,12 @@ Ingrediente
 
 
 </div>
-
 <div class="card" data-categoria="bebida">
-            <h3>Vitamina</h3>
-            <p>R$8,00</p>
-           <button class="add" onclick="adicionarProdutoSimples('Vitamina', 8); animarCard(this)">Adicionar</button>
-
-
-
+   <h3>Vitamina</h3>
+  <p>R$10 </p>
+<button class="add" onclick="abrirOpcaoVitamina('Vitamina', 10); animarCard(this)">
+Adicionar
+</button>
 </div>
 
 <div class="card" data-categoria="bebida">
@@ -920,6 +918,29 @@ Adicionar
 </section>
 
 
+<div id="modalVitaminaSimples" class="modal">
+  <div class="modal-conteudo">
+    <h3>Escolha o sabor</h3>
+
+    <select id="saborVitamina">
+      <option value="">Selecione</option>
+      <option>Goiaba</option>
+      <option>Acerola</option>
+      <option>Graviola</option>
+      <option>Cajá</option>
+      <option>Banana</option>
+      <option>Abacate</option>
+      <option>Maracujá</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="confirmarVitaminaSimples()">Confirmar</button>
+    <button onclick="fecharVitaminaSimples()">Cancelar</button>
+  </div>
+</div>
+
+
 
 <div id="popup-carrinho" class="popup">
     <div class="conteudo-popup">
@@ -1032,6 +1053,8 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
   </div>
 </div>
 
+
+
 <div id="modalCuscuzRecheado" class="modal">
   <div class="modal-conteudo">
     <span class="fechar" onclick="fecharCuscuzRecheado()">&times;</span>
@@ -1067,6 +1090,11 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
     <button onclick="confirmarCuscuzRecheado()">Confirmar</button>
   </div>
 </div>
+
+
+
+
+
 
 
   
