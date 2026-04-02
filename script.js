@@ -23,8 +23,6 @@ function adicionar(nome, preco) {
 
 function estaAbertoAgora() {
 
-  return true;
-
   const agora = new Date();
   const dia = agora.getDay(); // 0=domingo, 6=sábado
   const hora = agora.getHours();
