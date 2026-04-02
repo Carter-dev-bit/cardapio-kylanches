@@ -45,6 +45,34 @@
 <div class="card" id="pratinhoCard"></div>
 
     <div class="card" data-categoria="hamburguer">
+            <h3>Explosão Crocante</h3>
+            <p>Pão Bola R$15,00 <br>Pão Àrabe R$16,00</br></p>
+           <button class="add"
+onclick="abrirPersonalizacao(
+  'Explosão Crocante',
+  [
+    { tipo: 'pao', nome: 'Pão bola', preco: 15 },
+    { tipo: 'pao', nome: 'Pão árabe', preco: 16 }
+  ],
+  [
+  { nome: 'Sem molho', preco: 0 },
+  { nome: 'Molho roxo', preco: 0},
+  { nome: 'Pedacinho do Céu', preco: 0 },
+  { nome: 'Molho de Calabbresa', preco: 0 }
+]
+ ); animarCard(this)">
+Adicionar
+</button><br>
+<button class="btn-ingrediente" 
+data-ingredientes="Carne, Presunto, Ovo, Catupiry, Batata palha, Milho, Alface, Tomate">
+Ingrediente
+</button>
+
+</br>
+</div>
+
+
+    <div class="card" data-categoria="hamburguer">
             <h3>X-Burguer</h3>
             <p>Pão Bola R$11,00 <br>Pão Àrabe R$12,00</br></p>
            <button class="add"
