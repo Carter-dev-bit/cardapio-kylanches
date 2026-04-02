@@ -266,7 +266,7 @@ if(maionese){
    let totalFinal = totalValor + taxaEntrega;
     mensagem += `%0ATotal: R$${totalFinal.toFixed(2)}`;
 
-    let numero = "5585998554871";
+    let numero = "5585992825170";
     window.open(`https://wa.me/${numero}?text=${mensagem}`);
 }
 
