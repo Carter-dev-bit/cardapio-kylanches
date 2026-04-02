@@ -24,7 +24,6 @@
 
 <div class="filtros">
     <button onclick="filtrar('todos')">Todos</button>
-    <button onclick="filtrar('sanduiche natural')">Sanduíches Natural</button>
     <button onclick="filtrar('hamburguer')">Hambúrgueres</button>
     <button onclick="filtrar('bebida')">Bebidas</button>
     <button onclick="filtrar('salgado')">Salgados</button>
@@ -319,29 +318,10 @@ Ingrediente
 </div>
 
 <div class="card" data-categoria="combo">
-            <h3>Mistão/ Pão Árabe + Batata e Refrigerante em lata</h3>
+            <h3>Pastel G Carne do Sol+ Batata e Refrigerante em lata</h3>
             <p>R$22,00</p>
-           <button class="add"
-onclick="abrirPersonalizacao(
-  'Mistão/ Pão Árabe + Batata e Refrigerante em lata',
-  [
-    { tipo: 'pao', nome: 'Pão árabe', preco: 22 }
-  ],
-   [
-  { nome: 'Sem molho', preco: 0 },
-  { nome: '1 Sachê Maionese da Casa', preco: 1.5 },
-  { nome: '2 Sachês Maionese da Casa', preco: 2.5 },
-  { nome: 'Kit Maionese da Casa', preco: 3 }
-]
-   ); animarCard(this)">
-Adicionar
-</button><br>
-<button class="btn-ingrediente" 
-data-ingredientes="Queijo, Presunto, Milho, Alface e Tomate">
-Ingrediente
-</button>
+            <button class="add" onclick="adicionarProdutoSimples('Pastel G Mistão + Batata e Refrigerante em lata', 22); animarCard(this)">Adicionar</button>
 
-</br>
 
 </div>
 
@@ -370,53 +350,13 @@ Ingrediente
 </div>
 
 <div class="card" data-categoria="combo">
-            <h3> 1 Porção de Bolinhas de queijo +<br>Enroladinho de salcicha e</br> Refrigerante em lata</h3>
+            <h3> 1 Porção de Bolinhas de queijo +<br> 1 Enroladinho de salcicha,</br> Refrigerante em lata e Batata</h3>
             <p>R$18,00</p>
-            <button class="add" onclick="adicionarProdutoSimples(' 1 Porção de Bolinhas de queijo + 1 Enroladinho de salcicha e Refrigerante em lata', 18); animarCard(this)">Adicionar</button>
+            <button class="add" onclick="adicionarProdutoSimples(' 1 Porção de Bolinhas de queijo + 1 Enroladinho de salcicha, Refrigerante em lata e Batata', 18); animarCard(this)">Adicionar</button>
 
 
 </div>
 
-<div class="card" data-categoria="sanduiche natural">
-            <h3>X.Salada</h3>
-            <p>R$15,00</p>
-            <button class="add" onclick="adicionarProdutoSimples('X.Salada', 15); animarCard(this)">Adicionar</button>
-<br>
-<button class="btn-ingrediente" 
-data-ingredientes="Pão Integral, Frango, Queijo, Milho, Alface, tomate e molho">
-Ingrediente
-</button>
-</br>
-
-</div>
-
-<div class="card" data-categoria="sanduiche natural">
-            <h3>Delicia Do Sertão</h3>
-            <p>R$20,00</p>
-<button class="add" onclick="adicionarProdutoSimples('Delicia Do Sertão', 20); animarCard(this)">Adicionar</button>
-<br>
-<button class="btn-ingrediente" 
-data-ingredientes="Pão Integral, Carne Do Sol, Queijo, Alface, Tomate, Creme De Milho">
-Ingrediente
-</button>
-
-</br>
-
-</div>
-
-<div class="card" data-categoria="sanduiche natural">
-            <h3>KL Tudo</h3>
-            <p>R$21,00</p>
- <button class="add" onclick="adicionarProdutoSimples('KL-Tudo', 21); animarCard(this)">Adicionar</button>
-<br>
-<button class="btn-ingrediente" 
-data-ingredientes="Carne Do Sol, Frango, Queijo, Presunto, Alface, Tomate e Creme De Milho">
-Ingrediente
-</button>
-
-</br>
-
-</div>
 
 <div class="card" data-categoria="bebida">
             <h3>Refri 1L</h3>
@@ -535,8 +475,8 @@ Ingrediente
 </div>
 <div class="card" data-categoria="bebida">
    <h3>Vitamina</h3>
-  <p>R$10 </p>
-<button class="add" onclick="abrirOpcaoVitamina('Vitamina', 10); animarCard(this)">
+  <p>R$7,00 <br> >400ml</br></p>
+<button class="add" onclick="abrirOpcaoVitamina('Vitamina', 7); animarCard(this)">
 Adicionar
 </button>
 </div>
@@ -598,7 +538,7 @@ Adicionar
 </div>
 
 <div class="card" data-categoria="salgado">
-            <h3>Risole Mistão</h3>
+            <h3>Risole G Mistão</h3>
             <p>R$7,00</p>
            <button class="add" onclick="adicionarProdutoSimples('Risole Mistão', 7); animarCard(this)">Adicionar</button>
 
@@ -634,9 +574,9 @@ Ingrediente
 </div>
 
 <div class="card" data-categoria="salgado">
-            <h3>Bolinha De Carne Do Sol</h3>
-            <p>R$4,00</p>
-            <button class="add" onclick="adicionarProdutoSimples('Bolinha De Carne Do Sol ', 4); animarCard(this)">Adicionar</button>
+            <h3>Bolinha De Carne Do Sol 12 uni.</h3>
+            <p>R$11,00</p>
+            <button class="add" onclick="adicionarProdutoSimples('Bolinha De Carne Do Sol 12 uni.', 11); animarCard(this)">Adicionar</button>
 
 
 </div>
@@ -650,11 +590,20 @@ Ingrediente
 </div>
 
 <div class="card" data-categoria="pastel">
-            <h3>Pastel M Chocolate ao Leite</h3>
-            <p>R$12,00</p>
-          <button class="add" onclick="adicionarProdutoSimples('Pastel M Chocolate ao Leite', 12); animarCard(this)">Adicionar</button>
+<h3>Pastel Doce (M)</h3>
+<p>R$12,00</p>
 
+<button onclick="adicionarProdutoSimples('Pastel Doce - Chocolate', 12)">
+Chocolate
+</button>
 
+<button onclick="adicionarProdutoSimples('Pastel Doce - Beijinho', 12)">
+Beijinho
+</button>
+
+<button onclick="adicionarProdutoSimples('Pastel Doce - Doce de leite', 12)">
+Doce de leite
+</button>
 </div>
 
 
@@ -830,10 +779,18 @@ Doce de leite
 </div>
 
 <div class="card" data-categoria="cuscuz">
-            <h3>CusCuz</h3>
-            <p>R$18,00</p>
-         <button  class="add" onclick="abrirOpcaoCuscuz('Cuscuz Simples', 18); animarCard(this)">Adicionar</button>
+            <h3>CusCuz Simples/ Qualy e manteiga da terra</h3>
+            <p>R$4,00</p>
+         <button  class="add" onclick="adicionarProdutoSimples('Cuscuz Simples/ Qualy e Manteiga da terra', 4); animarCard(this)">Adicionar</button>
 
+</div>
+
+<div class="card" data-categoria="cuscuz">
+            <h3>Cuscuz Simples/ Qualy, Manteiga da terra e Ovo</h3>
+            <p>R$5,00</p>
+            <button class="add" onclick="adicionarProdutoSimples('Cuscuz Simples/ Qualy, Manteiga da terra e Ovo', 5); animarCard(this)">
+    Adicionar
+</button>
 </div>
 
 <div class="card" data-categoria="cuscuz">
@@ -894,7 +851,7 @@ Adicionar
   <div class="modal-conteudo">
     <span class="fechar" onclick="fecharVitamina()">&times;</span>
 
-    <h2>Vitamina de Guaraná</h2>
+    <h2> Pó de Guaraná</h2>
 
     <p><strong>Escolha o tamanho:</strong></p>
 
@@ -931,7 +888,6 @@ Adicionar
     <select id="saborVitamina">
       <option value="">Selecione</option>
       <option>Goiaba</option>
-      <option>Acerola</option>
       <option>Graviola</option>
       <option>Cajá</option>
       <option>Banana</option>
@@ -1041,19 +997,10 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
     </label><br>
 
     <label>
-      <input type="radio" name="opcCuscuz" value="Qualy, ovo">
-      Qualy e Ovo 
-    </label><br>
-
-    <label>
       <input type="radio" name="opcCuscuz" value="Manteiga, Ovo">
       Manteiga e Ovo 
     </label><br>
 
-    <label>
-      <input type="radio" name="opcCuscuz" value="Manteiga">
-      Manteiga
-    </label><br>
 
     <button onclick="confirmarCuscuz()">Confirmar</button>
   </div>

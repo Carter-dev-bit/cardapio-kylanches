@@ -424,6 +424,53 @@ function adicionarProdutoSimples(nome, preco){
 
 }
 
+let vitaminaAtual = null;
+
+function abrirOpcaoVitamina(nome, preco){
+  vitaminaAtual = { nome, preco };
+  document.getElementById("modalVitaminaSimples").style.display = "flex";
+}
+
+function fecharVitaminaSimples(){
+  document.getElementById("modalVitaminaSimples").style.display = "none";
+}
+
+function confirmarVitaminaSimples(){
+  const sabor = document.getElementById("saborVitamina").value;
+
+  if(!sabor){
+    alert("Escolha um sabor!");
+    return;
+  }
+
+  let itemExistente = carrinho.find(item =>
+    item.nome === vitaminaAtual.nome &&
+    item.sabor === sabor
+  );
+
+  if(itemExistente){
+    itemExistente.quantidade += 1;
+  } else {
+    carrinho.push({
+      nome: vitaminaAtual.nome,
+      preco: vitaminaAtual.preco,
+      quantidade: 1,
+      sabor: sabor
+    });
+  }
+
+  atualizarCarrinho();
+  mostrarToast("Adicionado ao carrinho ✅");
+
+  fecharVitaminaSimples();
+
+  // limpa seleção
+  document.getElementById("saborVitamina").value = "";
+}
+
+
+
+
 let cuscuzAtual = null;
 
 function abrirOpcaoCuscuz(nome, preco){
@@ -693,49 +740,6 @@ document.querySelectorAll('input[name="tipoEntrega"]').forEach(radio => {
 });
 
 
-let vitaminaAtual = null;
-
-function abrirOpcaoVitamina(nome, preco){
-  vitaminaAtual = { nome, preco };
-  document.getElementById("modalVitaminaSimples").style.display = "flex";
-}
-
-function fecharVitaminaSimples(){
-  document.getElementById("modalVitaminaSimples").style.display = "none";
-}
-
-function confirmarVitaminaSimples(){
-  const sabor = document.getElementById("saborVitamina").value;
-
-  if(!sabor){
-    alert("Escolha um sabor!");
-    return;
-  }
-
-  let itemExistente = carrinho.find(item =>
-    item.nome === vitaminaAtual.nome &&
-    item.sabor === sabor
-  );
-
-  if(itemExistente){
-    itemExistente.quantidade += 1;
-  } else {
-    carrinho.push({
-      nome: vitaminaAtual.nome,
-      preco: vitaminaAtual.preco,
-      quantidade: 1,
-      sabor: sabor
-    });
-  }
-
-  atualizarCarrinho();
-  mostrarToast("Adicionado ao carrinho ✅");
-
-  fecharVitaminaSimples();
-
-  // limpa seleção
-  document.getElementById("saborVitamina").value = "";
-}
 
 
 
