@@ -31,6 +31,7 @@
     <button onclick="filtrar('pastel')">Pastel</button>
     <button onclick="filtrar('caldo')">Caldo</button>
     <button onclick="filtrar('cuscuz')">Cuscuz</button>
+    <button onclick="filtrar('tapioca')">Tapioca</button>
     <button onclick="filtrar('combo')">Combo</button>
 
     
@@ -56,6 +57,8 @@ onclick="abrirPersonalizacao(
   ],
   [
   { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
   { nome: 'Molho roxo', preco: 0},
   { nome: 'Pedacinho do Céu', preco: 0 },
   { nome: 'Molho de Calabbresa', preco: 0 }
@@ -82,8 +85,10 @@ onclick="abrirPersonalizacao(
     { tipo: 'pao', nome: 'Pão bola', preco: 11 },
     { tipo: 'pao', nome: 'Pão árabe', preco: 12 }
   ],
-  [
+ [
   { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
   { nome: 'Molho roxo', preco: 0},
   { nome: 'Pedacinho do Céu', preco: 0 },
   { nome: 'Molho de Calabbresa', preco: 0 }
@@ -111,6 +116,8 @@ onclick="abrirPersonalizacao(
   ],
  [
   { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
   { nome: 'Molho roxo', preco: 0},
   { nome: 'Pedacinho do Céu', preco: 0 },
   { nome: 'Molho de Calabbresa', preco: 0 }
@@ -139,6 +146,8 @@ onclick="abrirPersonalizacao(
   ],
  [
   { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
   { nome: 'Molho roxo', preco: 0},
   { nome: 'Pedacinho do Céu', preco: 0 },
   { nome: 'Molho de Calabbresa', preco: 0 }
@@ -169,6 +178,8 @@ onclick="abrirPersonalizacao(
   ],
   [
   { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
   { nome: 'Molho roxo', preco: 0},
   { nome: 'Pedacinho do Céu', preco: 0 },
   { nome: 'Molho de Calabbresa', preco: 0 }
@@ -198,6 +209,8 @@ onclick="abrirPersonalizacao(
   ],
 [
   { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
   { nome: 'Molho roxo', preco: 0},
   { nome: 'Pedacinho do Céu', preco: 0 },
   { nome: 'Molho de Calabbresa', preco: 0 }
@@ -224,8 +237,10 @@ onclick="abrirPersonalizacao(
     { tipo: 'pao', nome: 'Pão bola', preco: 13 },
     { tipo: 'pao', nome: 'Pão árabe', preco: 14 }
   ],
-   [
+  [
   { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
   { nome: 'Molho roxo', preco: 0},
   { nome: 'Pedacinho do Céu', preco: 0 },
   { nome: 'Molho de Calabbresa', preco: 0 }
@@ -254,8 +269,10 @@ Ingrediente
     { tipo: 'pao', nome: 'Pão bola', preco: 14 },
     { tipo: 'pao', nome: 'Pão árabe', preco: 15 }
   ],
-  [
+ [
   { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
   { nome: 'Molho roxo', preco: 0},
   { nome: 'Pedacinho do Céu', preco: 0 },
   { nome: 'Molho de Calabbresa', preco: 0 }
@@ -281,6 +298,8 @@ Ingrediente
   ],
 [
   { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
   { nome: 'Molho roxo', preco: 0},
   { nome: 'Pedacinho do Céu', preco: 0 },
   { nome: 'Molho de Calabbresa', preco: 0 }
@@ -304,8 +323,10 @@ Ingrediente
   [
     { tipo: 'pao', nome: 'Pão árabe', preco: 22 }
   ],
-   [
+  [
   { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
   { nome: 'Molho roxo', preco: 0},
   { nome: 'Pedacinho do Céu', preco: 0 },
   { nome: 'Molho de Calabbresa', preco: 0 }
@@ -381,7 +402,16 @@ Ingrediente
 </div>
 
  <div class="card" data-categoria="bebida">
-            <h3>Coca-Cola</h3>
+            <h3>Coca-Cola <br>600ml</br></h3>
+            <p>R$7,00</p>
+            <button class="add" onclick="adicionarProdutoSimples('Coca-Cola', 7); animarCard(this)">Adicionar</button>
+
+
+
+        </div>
+
+        <div class="card" data-categoria="bebida">
+            <h3>Coca-Cola em Lata</h3>
             <p>R$6,00</p>
             <button class="add" onclick="adicionarProdutoSimples('Coca-Cola', 6); animarCard(this)">Adicionar</button>
 
@@ -391,7 +421,7 @@ Ingrediente
 
 
 <div class="card" data-categoria="bebida">
-            <h3>Guaraná Lata</h3>
+            <h3>Guaraná em Lata</h3>
             <p>R$6,00</p>
            <button class="add" onclick="adicionarProdutoSimples('Guaraná Lata', 6); animarCard(this)">Adicionar</button>
 
@@ -812,12 +842,11 @@ Doce de leite
 
 </div>
 
-<div class="card" data-categoria="cuscuz">
-            <h3>Tapioca Com O Recheio A Critério Do Cliente</h3>
-            <p>R$7,00</p>
-            <button class="add" onclick="adicionarProdutoSimples('Tapioca Com O Recheio A Critério Do Cliente', 7); animarCard(this)">
-    Adicionar
-</button>
+<div class="card" data-categoria="tapioca">
+            <h3>Tapioca Recheada</h3>
+            <p>R$13,00</p>
+         <button class="add" onclick="abrirTapiocaRecheada(); animarCard(this)">Adicionar</button>
+
 </div>
 
 <div class="card" data-categoria="caldo">
@@ -926,15 +955,6 @@ Adicionar
         <p id="infoEntrega"></p>
 
 
-    <h3>Maionese da Casa</h3>
-
-<select id="maionese">
-  <option value="">Nenhuma</option>
-  <option value="1">1 Sachê (R$1,50)</option>
-  <option value="2">2 Sachês (R$2,50)</option>
-  <option value="3">Kit (R$3,00)</option>
-</select>
-
 <textarea 
 id="observacao" 
 placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
@@ -1001,7 +1021,6 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
   </div>
 </div>
 
-
  
 <div id="modalCuscuz" class="modal">
   <div class="modal-conteudo">
@@ -1025,8 +1044,6 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
     <button onclick="confirmarCuscuz()">Confirmar</button>
   </div>
 </div>
-
-
 
 <div id="modalCuscuzRecheado" class="modal">
   <div class="modal-conteudo">
@@ -1064,11 +1081,42 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
   </div>
 </div>
 
+<div id="modalTapiocaRecheada" class="modal">
+  <div class="modal-conteudo">
+    <span class="fechar" onclick="fecharTapiocaRecheada()">×</span>
 
+    <h2>Escolha o recheio</h2>
 
+    <select id="recheioTapioca">
+      <option value="">Selecione</option>
 
+      <option value="11" data-nome="Carne do Sol com Requeijão">
+        Carne do Sol com Requeijão - R$11,00
+      </option>
 
+      <option value="10" data-nome="Frango com Requeijão">
+        Frango com Requeijão - R$10,00
+      </option>
 
+      <option value="10" data-nome="Queijo com Presunto e Ovos">
+        Queijo com Presunto e Ovos - R$10,00
+      </option>
+
+      <option value="10" data-nome="Carne Moída e Milho">
+        Carne Moída e Milho - R$10,00
+      </option>
+
+      <option value="11" data-nome="Calabresa com Cheddar">
+        Calabresa com Cheddar - R$11,00
+      </option>
+
+    </select>
+
+    <br><br>
+
+    <button onclick="confirmarTapioca()">Confirmar</button>
+  </div>
+</div>
 
   
  <div id="toast" class="toast"></div>

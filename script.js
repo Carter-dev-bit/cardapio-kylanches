@@ -104,7 +104,7 @@ function atualizarCarrinho(){
     }else{
       if(total < 50){
           let falta = 50 - total;
-          infoEntrega.innerText = `Taxa: R$7,00 | Faltam R$${falta.toFixed(2)} para entrega grátis`;
+          infoEntrega.innerText = `Taxa: R$6,00 | Faltam R$${falta.toFixed(2)} para entrega grátis`;
       }else{
         infoEntrega.innerText = `Entrega grátis`;
       }
@@ -187,6 +187,10 @@ if(item.sabor){
   mensagem += `  Sabor: ${item.sabor}%0A`;
 }
 
+if(item.recheio){
+  mensagem += `  Recheio: ${item.recheio}%0A`;
+}
+
 });
 
 
@@ -213,7 +217,7 @@ if(item.sabor){
     taxaEntrega = 0;
   } else {
     if(totalValor < 50){
-      taxaEntrega = 7;
+      taxaEntrega = 6;
     } else {
       taxaEntrega = 0;
     }
@@ -242,24 +246,7 @@ if(item.sabor){
         mensagem += `%0AObservação:%0A${observacao}%0A`;
     }
 
-    let maionese = document.getElementById("maionese").value;
-
-if(maionese){
-  if(maionese == "1"){
-    mensagem += `Maionese: 1 sachê (R$1,50)%0A`;
-    totalValor += 1.5;
-  }
-
-  if(maionese == "2"){
-    mensagem += `Maionese: 2 sachês (R$2,50)%0A`;
-    totalValor += 2.5;
-  }
-
-  if(maionese == "3"){
-    mensagem += `Maionese: Kit (R$3,00)%0A`;
-    totalValor += 3;
-  }
-}
+    
     
    let totalFinal = totalValor + taxaEntrega;
     mensagem += `%0ATotal: R$${totalFinal.toFixed(2)}`;
@@ -563,6 +550,7 @@ function fecharModalPaobola(){
   document.getElementById("modalPaobola").style.display = "none";
 }
 
+
 function abrirCuscuzRecheado(){
   document.getElementById("modalCuscuzRecheado").style.display = "flex";
 }
@@ -570,6 +558,54 @@ function abrirCuscuzRecheado(){
 function fecharCuscuzRecheado(){
   document.getElementById("modalCuscuzRecheado").style.display = "none";
 }
+
+function abrirTapiocaRecheada(){
+  document.getElementById("modalTapiocaRecheada").style.display = "flex";
+}
+
+function fecharTapiocaRecheada(){
+  document.getElementById("modalTapiocaRecheada").style.display = "none";
+}
+
+function confirmarTapioca(){
+
+  const select = document.getElementById("recheioTapioca");
+
+  if(!select.value){
+    alert("Escolha um recheio!");
+    return;
+  }
+
+  const preco = parseFloat(select.value);
+  const recheio = select.options[select.selectedIndex].dataset.nome;
+
+  const nomeFinal = "Tapioca Recheada";
+
+  // 🔥 verifica se já existe igual
+  let itemExistente = carrinho.find(item =>
+    item.nome === nomeFinal &&
+    item.recheio === recheio
+  );
+
+  if(itemExistente){
+    itemExistente.quantidade += 1;
+  } else {
+    carrinho.push({
+      nome: nomeFinal,
+      preco: preco,
+      quantidade: 1,
+      recheio: recheio
+    });
+  }
+
+  atualizarCarrinho();
+  mostrarToast("Adicionado ao carrinho ✅");
+  fecharTapiocaRecheada();
+
+  // limpar seleção
+  select.value = "";
+}
+
 
 function confirmarCuscuzRecheado(){
   const s1 = document.getElementById("sabor1").value.trim();
@@ -729,14 +765,19 @@ function limparCarrinho(){
 }
 
 function pegarPratinhoDoDia() {
-    const hoje = new Date().getDay();;
+    const hoje = new Date ().getDate();
 
     if (hoje === 2) {
         return `
         <h3>Pratinho - Terça</h3>
-        <p>Panqueca - R$10,00</p>
-        <small>Acompanha: arroz, purê, batata doce e batata palha</small>
+        <p>Panqueca de Frango - R$10,00</p>
+        <small>Acompanha: Molho Branco</small>
         <button onclick="adicionarProdutoSimples('Pratinho Panqueca', 10)">Adicionar</button>
+
+        <p>Panqueca de Carne- R$10,00</p>
+        <small>Acompanha: Molho Branco</small>
+        <button onclick="adicionarProdutoSimples('Pratinho Panqueca', 10)">Adicionar</button>
+
 
         <p>Lasanha - R$10,00</p>
         <button onclick="adicionarProdutoSimples('Pratinho Lasanha', 10)">Adicionar</button>
@@ -748,7 +789,11 @@ function pegarPratinhoDoDia() {
         <h3>Pratinho - Quarta</h3>
         <p>Creme de galinha - R$10,00</p>
         <small>Acompanha: arroz, farofa, salada de maionese e batata palha</small>
-        <button onclick="adicionarProdutoSimples('Pratinho Creme de Galinha', 10)">Adicionar</button>
+        <button onclick="adicionarProdutoSimples('Pratinho Creme de Galinha P', 10)">Adicionar</button>
+  
+        <p>Creme de galinha - R$12,00</p>
+        <small>Acompanha: arroz, farofa, salada de maionese e batata palha</small>
+        <button onclick="adicionarProdutoSimples('Pratinho Creme de Galinha G', 12)">Adicionar</button>
         `;
     }
 
