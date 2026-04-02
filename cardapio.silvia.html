@@ -323,7 +323,7 @@ Ingrediente
 <div class="card" data-categoria="combo">
             <h3>Pastel G Carne do Sol+ Batata e Refrigerante em lata</h3>
             <p>R$22,00</p>
-            <button class="add" onclick="adicionarProdutoSimples('Pastel G Mistão + Batata e Refrigerante em lata', 22); animarCard(this)">Adicionar</button>
+            <button class="add" onclick="adicionarProdutoSimples('Pastel G Carne do Sol + Batata e Refrigerante em lata', 22); animarCard(this)">Adicionar</button>
 
 
 </div>
@@ -925,6 +925,15 @@ Adicionar
         <p id="infoEntrega"></p>
 
 
+    <h3>Maionese da Casa</h3>
+
+<select id="maionese">
+  <option value="">Nenhuma</option>
+  <option value="1">1 Sachê (R$1,50)</option>
+  <option value="2">2 Sachês (R$2,50)</option>
+  <option value="3">Kit (R$3,00)</option>
+</select>
+
 <textarea 
 id="observacao" 
 placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
@@ -992,21 +1001,7 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
 </div>
 
 
- <div id="modalPersonalizar" class="modal">
-  <div class="modal-conteudo">
-    <h3 id="tituloProduto"></h3>
-
-    <div id="opcoesPao"></div>
-
-    <p><strong>Molho:</strong></p>
-    <select id="molho"></select>
-
-    <br><br>
-    <button onclick="confirmarPersonalizacao()">Confirmar</button>
-    <button onclick="fecharModal()">Cancelar</button>
-  </div>
-</div>
-
+ 
 <div id="modalCuscuz" class="modal">
   <div class="modal-conteudo">
     <span class="fechar" onclick="fecharModalCuscuz()">&times;</span>

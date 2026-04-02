@@ -244,6 +244,24 @@ if(item.sabor){
         mensagem += `%0AObservação:%0A${observacao}%0A`;
     }
 
+    let maionese = document.getElementById("maionese").value;
+
+if(maionese){
+  if(maionese == "1"){
+    mensagem += `Maionese: 1 sachê (R$1,50)%0A`;
+    totalValor += 1.5;
+  }
+
+  if(maionese == "2"){
+    mensagem += `Maionese: 2 sachês (R$2,50)%0A`;
+    totalValor += 2.5;
+  }
+
+  if(maionese == "3"){
+    mensagem += `Maionese: Kit (R$3,00)%0A`;
+    totalValor += 3;
+  }
+}
     
    let totalFinal = totalValor + taxaEntrega;
     mensagem += `%0ATotal: R$${totalFinal.toFixed(2)}`;
