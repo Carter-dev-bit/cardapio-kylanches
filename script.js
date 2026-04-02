@@ -427,7 +427,7 @@ function confirmarPersonalizacao(){
       nome: produtoAtual.nome,
       quantidade: 1,
       pao: nomePao,
-      molho: `${molhoNome} (R$${precoMolho.toFixed(2)})`,
+      molho: molhoNome,
       preco: preco
     });
   }
