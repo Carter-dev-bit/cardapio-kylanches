@@ -380,8 +380,8 @@ function abrirPersonalizacao(nome, opcoesPao, opcoesMolho){
 
   opcoesMolho.forEach(m => {
   selectMolho.innerHTML += `
-    <option value="${m.preco}" data-nome="${m.nome}">
-      ${m.nome} ${m.preco > 0 ? `( +R$${m.preco} )` : ''}
+    <option value="0" data-nome="${m.nome}">
+      ${m.nome} 
     </option>
   `;
 });
@@ -407,10 +407,10 @@ function confirmarPersonalizacao(){
 
   const selectMolho = document.getElementById("molho");
 
-  const precoMolho = parseFloat(selectMolho.value);
+ 
   const molhoNome = selectMolho.options[selectMolho.selectedIndex].dataset.nome;
 
-  let preco = parseFloat(paoSelecionado.value) + precoMolho;
+  let preco = parseFloat(paoSelecionado.value);
 
   let nomePao = paoSelecionado.dataset.nome.trim();
 
