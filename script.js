@@ -20,7 +20,10 @@ function adicionar(nome, preco) {
     atualizarCarrinho();
 }
 
+
 function estaAbertoAgora() {
+
+  return true;
 
   const agora = new Date();
   const dia = agora.getDay(); // 0=domingo, 6=sábado
@@ -95,11 +98,18 @@ function atualizarCarrinho(){
     });
 
     // 🔥 lógica da entrega AQUI dentro
-    if(total < 50){
-        let falta = 50 - total;
-        infoEntrega.innerText = `Taxa: R$7,00 | Faltam R$${falta.toFixed(2)} para entrega grátis 🚀`;
-    } else {
-        infoEntrega.innerText = `Entrega grátis 🎉`;
+    let localEl = document.getElementById("localEntrega");
+    let local = localEl ? localEl.value :"";
+
+    if(local === "setorb"){
+      infoEntrega.innerText = "Entrega grátis (Setor B)";
+    }else{
+      if(total < 50){
+          let falta = 50 - total;
+          infoEntrega.innerText = `Taxa: R$7,00 | Faltam R$${falta.toFixed(2)} para entrega grátis`;
+      }else{
+        infoEntrega.innerText = `Entrega grátis`;
+      }
     }
 
     document.getElementById("total").innerText = total.toFixed(2);
@@ -198,10 +208,18 @@ if(item.sabor){
     return;
   }
 
-  if(totalValor < 50){
-    taxaEntrega = 7;
-  }
+  // 🔥 AQUI entra o código que você mandou
+  let local = document.getElementById("localentrega")?.value || "";
 
+  if(local === "setorb"){
+    taxaEntrega = 0;
+  } else {
+    if(totalValor < 50){
+      taxaEntrega = 7;
+    } else {
+      taxaEntrega = 0;
+    }
+  }
   mensagem += `%0AEntrega:%0A`;
   mensagem += `Endereço: ${endereco}, Nº ${numeroCasa}%0A`;
 
@@ -230,7 +248,7 @@ if(item.sabor){
    let totalFinal = totalValor + taxaEntrega;
     mensagem += `%0ATotal: R$${totalFinal.toFixed(2)}`;
 
-    let numero = "5585992825170";
+    let numero = "5585998554871";
     window.open(`https://wa.me/${numero}?text=${mensagem}`);
 }
 

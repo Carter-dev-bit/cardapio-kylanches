@@ -41,6 +41,9 @@
 
 
 <div class="grid-produtos">
+
+<div class="card" id="pratinhoCard"></div>
+
     <div class="card" data-categoria="hamburguer">
             <h3>X-Burguer</h3>
             <p>Pão Bola R$11,00 <br>Pão Àrabe R$12,00</br></p>
@@ -442,7 +445,7 @@ Ingrediente
 <div class="card" data-categoria="bebida">
             <h3>Suco De Cajá</h3>
             <p>R$4,00  <br>>300ml</br></p>
-          <button class="add" onclick="adicionarProdutoSimples('Suco De Cajá', 3); animarCard(this)">Adicionar</button>
+          <button class="add" onclick="adicionarProdutoSimples('Suco De Cajá', 4); animarCard(this)">Adicionar</button>
 
 
 </div>
@@ -477,6 +480,14 @@ Ingrediente
    <h3>Vitamina</h3>
   <p>R$7,00 <br> >400ml</br></p>
 <button class="add" onclick="abrirOpcaoVitamina('Vitamina', 7); animarCard(this)">
+Adicionar
+</button>
+</div>
+
+<div class="card" data-categoria="bebida">
+   <h3>Vitamina da Fruta na Jarra </h3>
+  <p>R$14,00 <br> >900ml</br></p>
+<button class="add" onclick="abrirOpcaoVitamina('Vitamina da Fruta na Jarra', 14); animarCard(this)">
 Adicionar
 </button>
 </div>
@@ -698,7 +709,7 @@ Doce de leite
 <div class="card" data-categoria="pastel">
             <h3>Pastel G Calabresa Com Catupiry e milho</h3>
             <p>R$13,00</p>
-           <button class="add" onclick="adicionarProdutoSimples('Pastel G Calabresa Com Catupiry', 12); animarCard(this)">Adicionar</button>
+           <button class="add" onclick="adicionarProdutoSimples('Pastel G Calabresa Com Catupiry', 13); animarCard(this)">Adicionar</button>
 
 
 </div>
@@ -714,7 +725,7 @@ Doce de leite
 <div class="card" data-categoria="pastel">
             <h3>Pastel G Carne Do Sol Com Catypiry e milho</h3>
             <p>R$15,00</p>
-            <button class="add" onclick="adicionarProdutoSimples('Pastel G Carne Do Sol', 14); animarCard(this)">Adicionar</button>
+            <button class="add" onclick="adicionarProdutoSimples('Pastel G Carne Do Sol', 15); animarCard(this)">Adicionar</button>
 
 
 </div>
@@ -722,7 +733,7 @@ Doce de leite
 <div class="card" data-categoria="pastel">
             <h3>Pastel G Carne Moída Com Milho</h3>
             <p>R$13,00</p>
-            <button class="add" onclick="adicionarProdutoSimples('Pastel G Carne Moída COm Milho', 12); animarCard(this)">Adicionar</button>
+            <button class="add" onclick="adicionarProdutoSimples('Pastel G Carne Moída COm Milho', 13); animarCard(this)">Adicionar</button>
 
 
 </div>
@@ -730,7 +741,7 @@ Doce de leite
 <div class="card" data-categoria="pastel">
             <h3>Pastel G Mistão</h3>
             <p>R$15,00</p>
-            <button class="add" onclick="adicionarProdutoSimples('Pastel G Mistão', 12); animarCard(this)">Adicionar</button>
+            <button class="add" onclick="adicionarProdutoSimples('Pastel G Mistão', 15); animarCard(this)">Adicionar</button>
 
 
 </div>
@@ -831,13 +842,13 @@ Doce de leite
 
 <div class="card" data-categoria="hamburguer">
             <h3>Pão Bola</h3>
-            <p>R$4,00</p>
+            <p>R$3,00</p>
 <button class="add"
 onclick="abrirPersonalizacao(
   'Pão Bola',
   [
-    { tipo: 'pao bola', nome: 'Manteiga', preco: 4 },
-    { tipo: 'pao bola', nome: 'Qualy', preco: 4 }
+    { tipo: 'pao bola', nome: 'Manteiga', preco: 3 },
+    { tipo: 'pao bola', nome: 'Qualy', preco: 3 }
   ],
   []
 ); animarCard(this)">
@@ -930,13 +941,26 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
 </label>
 <br><br>
 
+
+
 <div id="dadosEntrega" style="display:none;">
+
+  <select id="localentrega"> 
+   <option value="">selecione o local</option>
+   <option value="setorb">setor b (grátis)</option>
+   <option value="outro">outro bairro</option>
+  </select>
+
+<br></br>
+
   <input type="text" id="endereco" placeholder="Endereço"><br>
   <input type="text" id="numeroCasa" placeholder="Número"><br>
   <input type="text" id="referencia" placeholder="Ponto de referência"><br>
 </div>
 
-        <button onclick="enviarPedido()">Enviar Pedido</button>
+
+
+        <button id="enviar" onclick="enviarPedido()">Enviar Pedido</button>
         <button onclick="fecharCarrinho()">Fechar</button>
         <button id="limpar" onclick="limparCarrinho()">Limpar carrinho</button>
 
