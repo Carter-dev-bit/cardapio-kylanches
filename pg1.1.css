@@ -68,6 +68,12 @@ h1{
 @media (max-width: 768px) {
     .grid-produtos {        
         grid-template-columns: repeat(2, 1fr);
+        margin: 0;
+        padding: 10px;
+        justify-content: center;
+    }
+    .card{
+        margin: 0 auto;
     }
 }
 
