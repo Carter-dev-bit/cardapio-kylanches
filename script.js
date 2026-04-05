@@ -489,7 +489,31 @@ function confirmarVitaminaSimples(){
   document.getElementById("saborVitamina").value = "";
 }
 
+function abrirSucoJarra() {
+  document.getElementById("modalSucoJarra").style.display = "flex";
+}
 
+function fecharSucoJarra() {
+  document.getElementById("modalSucoJarra").style.display = "none";
+}
+
+function confirmarSucoJarra() {
+  let checkboxes = document.querySelectorAll('#modalSucoJarra input[type="checkbox"]:checked');
+
+  if (checkboxes.length === 0) {
+    alert("Escolha pelo menos uma fruta!");
+    return;
+  }
+
+  let frutas = [];
+  checkboxes.forEach(cb => frutas.push(cb.value));
+
+  let nome = "Suco de Jarra (" + frutas.join(", ") + ")";
+  let preco = 15;
+
+  adicionarProdutoSimples(nome, preco);
+  fecharSucoJarra();
+}
 
 
 let cuscuzAtual = null;
