@@ -197,9 +197,10 @@ if(item.recheio){
    let tipoEntrega = document.querySelector('input[name="tipoEntrega"]:checked').value;
 
   let totalValor = parseFloat(document.getElementById("total").textContent);
+  
   let taxaEntrega = 0;
 
-  if(tipoEntrega === "entrega"){
+if(tipoEntrega === "entrega"){
 
   let endereco = document.getElementById("endereco").value.trim();
   let numeroCasa = document.getElementById("numeroCasa").value.trim();
@@ -210,7 +211,6 @@ if(item.recheio){
     return;
   }
 
-  // 🔥 AQUI entra o código que você mandou
   let local = document.getElementById("localentrega")?.value || "";
 
   if(local === "setorb"){
@@ -222,6 +222,7 @@ if(item.recheio){
       taxaEntrega = 0;
     }
   }
+
   mensagem += `%0AEntrega:%0A`;
   mensagem += `Endereço: ${endereco}, Nº ${numeroCasa}%0A`;
 
@@ -235,10 +236,28 @@ if(item.recheio){
     mensagem += `Entrega: Grátis 🎉%0A`;
   }
 
-} else {
+} 
+else if(tipoEntrega === "mesa"){
+
+  let mesa = document.getElementById("mesa").value;
+
+  if(!mesa){
+    alert("Selecione a mesa!");
+    return;
+  }
+
+  taxaEntrega = 0; // 🔥 MUITO IMPORTANTE
+
+  mensagem += `%0AConsumo no local%0A`;
+  mensagem += `Mesa: ${mesa}%0A`;
+
+} 
+else {
+
+  taxaEntrega = 0; // 🔥 garante zero
+
   mensagem += `%0ARetirada na lanchonete%0A`;
 }
-
 
     let observacao = document.getElementById("observacao").value;
 
@@ -257,10 +276,25 @@ if(item.recheio){
 
 document.querySelectorAll('input[name="tipoEntrega"]').forEach(radio => {
   radio.addEventListener("change", () => {
+
     const tipo = document.querySelector('input[name="tipoEntrega"]:checked').value;
 
-    document.getElementById("dadosEntrega").style.display =
-      tipo === "entrega" ? "block" : "none";
+    const entrega = document.getElementById("dadosEntrega");
+    const mesa = document.getElementById("dadosMesa");
+
+    if(tipo === "entrega"){
+      entrega.style.display = "block";
+      mesa.style.display = "none";
+    } 
+    else if(tipo === "mesa"){
+      entrega.style.display = "none";
+      mesa.style.display = "block";
+    } 
+    else {
+      entrega.style.display = "none";
+      mesa.style.display = "none";
+    }
+
   });
 });
 

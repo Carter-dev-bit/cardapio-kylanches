@@ -975,19 +975,36 @@ Adicionar
 id="observacao" 
 placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
 ></textarea>
-
+<br>
 <label>
   <input type="radio" name="tipoEntrega" value="retirada" checked>
   Retirar na lanchonete
 </label>
-
+</br>
+<br>
+<label>
+  <input type="radio" name="tipoEntrega" value="mesa" checked>
+  Consumir no local
+</label>
+</br>
 <label>
   <input type="radio" name="tipoEntrega" value="entrega">
   Entrega
 </label>
 <br><br>
 
+<div id="dadosMesa" style="display: none;">
 
+  <select id="mesa"> 
+   <option value="">Selecione a mesa</option>
+   <option>mesa 1</option>
+   <option>mesa 2</option>
+   <option>mesa 3</option>
+   <option>mesa 4</option>
+   <option>mesa 5</option>
+  </select>
+
+</div>
 
 <div id="dadosEntrega" style="display:none;">
 
@@ -998,6 +1015,7 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
   </select>
 
 <br></br>
+
 
   <input type="text" id="endereco" placeholder="Endereço"><br>
   <input type="text" id="numeroCasa" placeholder="Número"><br>
