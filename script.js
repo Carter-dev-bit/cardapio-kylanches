@@ -29,12 +29,12 @@ function estaAbertoAgora() {
   const minuto = agora.getMinutes();
 
 
-  // 🔥 Domingo - aberto o dia todo
+  // domingo - aberto o dia todo
   if (dia === 0) {
     return true;
   }
 
-  // 🔥 Sexta (5) - 15:00 até 17:30
+  // sexta (5) - 15:00 até 17:30
   if (dia === 5) {
     if (
       (hora > 15 && hora < 17) ||
@@ -46,7 +46,7 @@ function estaAbertoAgora() {
     return false;
   }
 
-  // 🔥 Sábado (6) - 17:40 até 23:00
+  // sábado (6) - 17:40 até 23:00
   if (dia === 6) {
     if (
       hora > 17 ||
@@ -57,7 +57,7 @@ function estaAbertoAgora() {
     return false;
   }
 
-  // 🔥 Segunda a Quinta (1 a 4) - 15:00 até 23:00
+  // segunda a quinta (1 a 4) - 15:00 até 23:00
   if (dia >= 1 && dia <= 4) {
     if (hora >= 15 && hora < 23) {
       return true;
@@ -70,7 +70,7 @@ function estaAbertoAgora() {
 
 function atualizarCarrinho(){
     const lista = document.getElementById("carrinho");
-    const infoEntrega = document.getElementById("infoEntrega"); // pega o elemento
+    const infoEntrega = document.getElementById("infoEntrega"); // pega o acho que posso chamaar de elemento
 
     lista.innerHTML = "";
 
@@ -95,7 +95,7 @@ function atualizarCarrinho(){
         `;
     });
 
-    // 🔥 lógica da entrega AQUI dentro
+    // lógica da entrega aqui dento
     let localEl = document.getElementById("localEntrega");
     let local = localEl ? localEl.value :"";
 
@@ -233,7 +233,7 @@ if(tipoEntrega === "entrega"){
   if(taxaEntrega > 0){
     mensagem += `Taxa de entrega: R$${taxaEntrega.toFixed(2)}%0A`;
   } else {
-    mensagem += `Entrega: Grátis 🎉%0A`;
+    mensagem += `Entrega: Grátis %0A`;
   }
 
 } 
@@ -246,7 +246,7 @@ else if(tipoEntrega === "mesa"){
     return;
   }
 
-  taxaEntrega = 0; // 🔥 MUITO IMPORTANTE
+  taxaEntrega = 0; 
 
   mensagem += `%0AConsumo no local%0A`;
   mensagem += `Mesa: ${mesa}%0A`;
@@ -254,7 +254,7 @@ else if(tipoEntrega === "mesa"){
 } 
 else {
 
-  taxaEntrega = 0; // 🔥 garante zero
+  taxaEntrega = 0; 
 
   mensagem += `%0ARetirada na lanchonete%0A`;
 }
@@ -304,11 +304,11 @@ function verificarHorario(){
   let botao = document.getElementById("enviar");
 
   if(estaAbertoAgora()){
-    status.innerHTML = "🟢 Estamos ABERTOS";
+    status.innerHTML = "Estamos ABERTOS";
     botao.disabled = false;
     botao.classList.remove("fechar");
   } else {
-    status.innerHTML = "🔴 Estamos FECHADOS";
+    status.innerHTML = "Estamos FECHADOS";
     botao.disabled = true;
     botao.classList.add("fechar");
   }
@@ -571,7 +571,7 @@ function confirmarCuscuz(){
 
   const opcao = opcaoEl.value.trim();
 
-  // procura item igual (mesmo produto + mesma opção)
+  // procura item igual 
   let itemExistente = carrinho.find(item =>
     item.nome === cuscuzAtual.nome &&
     item.opcao === opcao
@@ -639,7 +639,7 @@ function confirmarTapioca(){
 
   const nomeFinal = "Tapioca Recheada";
 
-  // 🔥 verifica se já existe igual
+  //  verifica se já existe igual
   let itemExistente = carrinho.find(item =>
     item.nome === nomeFinal &&
     item.recheio === recheio
@@ -660,7 +660,7 @@ function confirmarTapioca(){
   mostrarToast("Adicionado ao carrinho ✅");
   fecharTapiocaRecheada();
 
-  // limpar seleção
+  // limpa o selecionado
   select.value = "";
 }
 
@@ -679,7 +679,7 @@ function confirmarCuscuzRecheado(){
   const nome = "Cuscuz Recheado";
   const preco = 13;
 
-  // Para somar automaticamente quando for o mesmo trio (mesma ordem)
+  // para somar automaticamente quando for o mesmo trio
   let itemExistente = carrinho.find(item =>
     item.nome === nome &&
     item.sabores === sabores
@@ -701,7 +701,7 @@ function confirmarCuscuzRecheado(){
 
   fecharCuscuzRecheado();
 
-  // limpar selects
+  // limpa o selecionado
   document.getElementById("sabor1").value = "";
   document.getElementById("sabor2").value = "";
   
@@ -718,8 +718,8 @@ function atualizarBloqueioSabores() {
 
   selects.forEach(sel => {
     [...sel.options].forEach(opt => {
-      if (!opt.value) return; // ignora "Selecione"
-      // desabilita se o sabor já foi escolhido em outro select
+      if (!opt.value) return; // ignora o selecione
+      // desabilita se o sabor já foi escolhido em outro
       opt.disabled = escolhidos.includes(opt.value) && sel.value !== opt.value;
     });
   });
@@ -783,7 +783,7 @@ function confirmarVitamina(){
 
   fecharVitamina();
 
-  // limpar seleção
+  // limpa a seleção
   document.querySelectorAll('input[name="tamanhoVitamina"]').forEach(r => r.checked = false);
   document.querySelectorAll('#modalVitamina input[type="checkbox"]').forEach(c => c.checked = false);
 }
@@ -793,7 +793,7 @@ function animarCard(botao){
   if(!card) return;
 
   card.classList.remove("added"); // reinicia se clicar rápido
-  void card.offsetWidth;          // força reflow
+  void card.offsetWidth;          
   card.classList.add("added");
 }
 
@@ -881,4 +881,4 @@ document.querySelectorAll('input[name="tipoEntrega"]').forEach(radio => {
 
 
 verificarHorario();
-setInterval(verificarHorario, 60000); // verifica a cada 1 minuto
+setInterval(verificarHorario, 60000); // verifica a cada 1 minuto a atualização
