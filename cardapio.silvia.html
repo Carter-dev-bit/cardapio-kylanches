@@ -164,6 +164,35 @@ Ingrediente
 
 </div>
 
+<div class="card" data-categoria="hamburguer">
+            <h3>X-salada</h3>
+            <p>Pão Bola R$11,00 <br>Pão Àrabe R$13,00</br></p>
+            <button class="add"
+onclick="abrirPersonalizacao(
+  'X-Salada',
+  [
+    { tipo: 'pao', nome: 'Pão bola', preco: 11 },
+    { tipo: 'pao', nome: 'Pão árabe', preco: 13 }
+  ],
+ [
+  { nome: 'Sem molho', preco: 0 },
+  { nome: 'Tradicional', preco: 0 },
+  { nome: 'Molho Verde', preco: 0 },
+  { nome: 'Molho roxo', preco: 0},
+  { nome: 'Pedacinho do Céu', preco: 0 },
+  { nome: 'Molho de Calabbresa', preco: 0 }
+]
+); animarCard(this)">
+Adicionar
+</button><br>
+<button class="btn-ingrediente" 
+data-ingredientes="Carne, Queijo, Presunto, Milho, Alface e Tomate">
+Ingrediente
+</button>
+
+</br>
+
+</div>
 
 
 <div class="card" data-categoria="hamburguer">
@@ -532,7 +561,7 @@ Adicionar
 </div>
 
 <div class="card" data-categoria="bebida">
-  <h3>Vitamina de Guaraná</h3>
+  <h3>Pó de Guaraná</h3>
   <p>300ml R$10 • 330ml R$11 • 400ml R$12 • </p>
   <button class="add" onclick="abrirVitamina(); animarCard(this)">Adicionar</button>
 </div>
@@ -833,16 +862,6 @@ Ingrediente
 </div>
 
 <div class="card" data-categoria="caldo">
-            <h3>Caldo Verde</h3>
-            <p>R$10,00 <br>400ml</br></p>
-            <button class="add" onclick="adicionarProdutoSimples('Caldo Verde', 10); animarCard(this)">
-    Adicionar
-</button>
-
-
-</div>
-
-<div class="card" data-categoria="caldo">
             <h3>Caldo De Carne Moída</h3>
             <p>R$10,00 <br>400ml</br></p>
             <button class="add" onclick="adicionarProdutoSimples('Caldo De Carne Moida', 10); animarCard(this)">
@@ -884,16 +903,6 @@ Adicionar
     <label><input type="radio" name="tamanhoVitamina" value="400" data-preco="12"> 400ml - R$12</label><br>
     
     <br><br>
-
-    <p><strong>Escolha as frutas:</strong></p>
-
-    <label><input type="checkbox" value="Banana"> Banana</label><br>
-    <label><input type="checkbox" value="Morango"> Morango</label><br>
-    <label><input type="checkbox" value="Açaí"> Açaí</label><br>
-    <label><input type="checkbox" value="Manga"> Manga</label><br>
-    <label><input type="checkbox" value="Ovomaltine"> Ovomaltine</label><br>
-
-    <br>
     <button onclick="confirmarVitamina()">Confirmar</button>
   </div>
 </div>
@@ -1072,24 +1081,15 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
     <select id="sabor1">
       <option value="">Selecione</option>
       <option value="Carne Do Sol">Carne Do Sol</option>
-      <option value="Queijo Coalho">Queijo Coalho</option>
-      <option value="Mussarela">Mussarela</option>
-      <option value="Carne Guísada">Carne Guísada</option>
-      <option value="Carne Moída">Carne Moída</option>
-      <option value="Calabresa Com Frango">Calabresa Com Frango</option>
-      <option value="Guísado De Frango">Guísado De Frango</option>
+      <option value="Queijo Coalho">Queijo Presunto e Milho</option>
+      <option value="Calabresa Com Frango">Calabresa Com Queijo</option>
     </select>
 
     <select id="sabor2">
       <option value="">Selecione</option>
       <option value="Carne Do Sol">Carne Do Sol</option>
-      <option value="Queijo Coalho">Queijo Coalho</option>
-      <option value="Mussarela">Mussarela</option>
-      
-      <option value="Carne Guísada">Carne Guísada</option>
-      <option value="Carne Moída">Carne Moída</option>
-      <option value="Calabresa Com Frango">Calabresa Com Frango</option>
-      <option value="Guísado De Frango">Guísado De Frango</option>
+      <option value="Queijo Coalho">Queijo Presunto e Milho</option>
+      <option value="Calabresa Com Frango">Calabresa Com Queijo</option>
     </select>
 
     
