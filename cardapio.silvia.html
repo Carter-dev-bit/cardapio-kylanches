@@ -849,8 +849,8 @@ Ingrediente
 
 <div class="card" data-categoria="cuscuz">
             <h3>CusCuz Recheado</h3>
-            <p>R$13,00</p>
-         <button class="add" onclick="abrirCuscuzRecheado(); animarCard(this)">Adicionar</button>
+            <p>Recheios</p>
+        <button class="add" onclick="abrirCuscuzRecheado(); animarCard(this)">Adicionar</button>
 
 </div>
 
@@ -1075,23 +1075,22 @@ placeholder="Alguma observação? Ex: sem queijo, sem cebola..."
   <div class="modal-conteudo">
     <span class="fechar" onclick="fecharCuscuzRecheado()">&times;</span>
 
-    <h2>Cuscuz Recheado</h2>
-    <p>Escolha <strong>2 sabores</strong>:</p>
-
-    <select id="sabor1">
+    <select id="recheioCuscuz">
       <option value="">Selecione</option>
-      <option value="Carne Do Sol">Carne Do Sol</option>
-      <option value="Queijo Coalho">Queijo Presunto e Milho</option>
-      <option value="Calabresa Com Frango">Calabresa Com Queijo</option>
-    </select>
 
-    <select id="sabor2">
-      <option value="">Selecione</option>
-      <option value="Carne Do Sol">Carne Do Sol</option>
-      <option value="Queijo Coalho">Queijo Presunto e Milho</option>
-      <option value="Calabresa Com Frango">Calabresa Com Queijo</option>
-    </select>
+      <option value="13" data-nome="Carne do Sol">
+        Carne do Sol com Requeijão - R$13,00
+      </option>
 
+      <option value="11" data-nome="Queijo com Presunto e Milho">
+        Queijo com Presunto e Ovos - R$11,00
+      </option>
+
+      <option value="13" data-nome="Calabresa com Queijo">
+        Calabresa com Cheddar - R$13,00
+      </option>
+
+    </select>
     
     <br><br>
     <button onclick="confirmarCuscuzRecheado()">Confirmar</button>

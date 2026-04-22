@@ -270,7 +270,7 @@ else {
    let totalFinal = totalValor + taxaEntrega;
     mensagem += `%0ATotal: R$${totalFinal.toFixed(2)}`;
 
-    let numero = "5585992825170";
+    let numero = "5585998554871";
     window.open(`https://wa.me/${numero}?text=${mensagem}`);
 }
 
@@ -666,45 +666,41 @@ function confirmarTapioca(){
 
 
 function confirmarCuscuzRecheado(){
-  const s1 = document.getElementById("sabor1").value.trim();
-  const s2 = document.getElementById("sabor2").value.trim();
-  
+   const select = document.getElementById("recheioCuscuz");
 
-  if(!s1 || !s2 ){
-    alert("Escolha os 2 sabores!");
+  if(!select.value){
+    alert("Escolha um recheio!");
     return;
   }
 
-  const sabores = [s1, s2 ].join(", ");
-  const nome = "Cuscuz Recheado";
-  const preco = 13;
+  const preco = parseFloat(select.value);
+  const recheio = select.options[select.selectedIndex].dataset.nome;
 
-  // para somar automaticamente quando for o mesmo trio
+  const nomeFinal = "Cuscuz Recheado";
+
+  //  verifica se já existe igual
   let itemExistente = carrinho.find(item =>
-    item.nome === nome &&
-    item.sabores === sabores
+    item.nome === nomeFinal &&
+    item.recheio === recheio
   );
 
   if(itemExistente){
     itemExistente.quantidade += 1;
   } else {
     carrinho.push({
-      nome: nome,
+      nome: nomeFinal,
       preco: preco,
       quantidade: 1,
-      sabores: sabores
+      recheio: recheio
     });
   }
 
   atualizarCarrinho();
   mostrarToast("Adicionado ao carrinho ✅");
-
   fecharCuscuzRecheado();
 
   // limpa o selecionado
-  document.getElementById("sabor1").value = "";
-  document.getElementById("sabor2").value = "";
-  
+  select.value = "";
 }
 
 function atualizarBloqueioSabores() {
