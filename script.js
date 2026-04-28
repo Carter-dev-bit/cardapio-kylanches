@@ -826,11 +826,11 @@ function pegarPratinhoDoDia() {
         <h3>Pratinho - Terça</h3>
         <p>Panqueca de Frango - R$10,00</p>
         <small>Acompanha: Molho Branco</small>
-        <button onclick="adicionarProdutoSimples('Pratinho Panqueca', 10)">Adicionar</button>
+        <button onclick="adicionarProdutoSimples('Panqueca de Frango', 10)">Adicionar</button>
 
         <p>Panqueca de Carne- R$10,00</p>
         <small>Acompanha: Molho Branco</small>
-        <button onclick="adicionarProdutoSimples('Pratinho Panqueca', 10)">Adicionar</button>
+        <button onclick="adicionarProdutoSimples('Panqueca de Carne', 10)">Adicionar</button>
 
 
         <p>Lasanha - R$10,00</p>
